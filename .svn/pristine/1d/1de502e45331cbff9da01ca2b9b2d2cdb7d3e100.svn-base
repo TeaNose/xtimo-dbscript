@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.goijo.xtimo</groupId>
+	<artifactId>xtimo-dbscript</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>XTimo Database</name>
+	<description>XTimo Database</description>
+	<scm>
+		<connection>scm:svn:svn://svn.goijo.com:9011/xtimo/backend/xtimo-dbscript/trunk</connection>
+		<developerConnection>scm:svn:svn://svn.goijo.com:9011/xtimo/backend/xtimo-dbscript/trunk</developerConnection>
+		<url>svn://svn.goijo.com:9011/xtimo/backend/xtimo-dbscript/trunk</url>
+	</scm>
+	<properties>
+		<jlego-maven-plugin.version>1.0.4</jlego-maven-plugin.version>
+	</properties>
+	<profiles>
+		<profile>
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.jlego</groupId>
+						<artifactId>jlego-maven-plugin</artifactId>
+						<version>${jlego-maven-plugin.version}</version>
+						<configuration>
+							<databases>
+								<database>
+									<driverClassName>com.mysql.jdbc.Driver</driverClassName>
+									<url>jdbc:mysql://127.0.0.1:3306/xtimodb</url>
+									<userName>xtimo</userName>
+									<password>Xtimo123</password>
+								</database>
+							</databases>
+							<customDbUrl>true</customDbUrl>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
